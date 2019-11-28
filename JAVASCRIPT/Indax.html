@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+    <script>
+        var age     = 12;
+        var name       = "abc";
+        var boolean = true;
+        var data   = null;
+        var married;
+        console.log("AGE : " + age);
+        console.log("NAME : " + name);
+        console.log("BOOLEAN : " + boolean);
+        console.log("DATA : " + data);
+        console.log("MARRIED : " + married)
+    </script>
+    <!-- <script src="Date.js">
+    </script> -->
+</head>
+
+<body>
+    <script>
+        var string = ["abc", "bca", "cab"];
+        console.log('String = ', string);
+        console.log('String = ', string[0]);
+        console.log('String Length =', string.length);
+  
+
+    var person = {
+                    FirstName : 'Alia Bhatt',
+                    LastName : 'Ranbir',
+                    age : 26,
+                    PhoneNo  : 234567890,
+
+                    getFullName : function(){
+                                                return this.FirstName + ' ' + this.LastName
+                                            }
+                 }
+                 var FirstName = person.FirstName;
+                 console.log('FIRSTNAME : ',FirstName);
+                 var LastName = person.LastName;
+                 console.log('LASTNAME : ',LastName);
+                 var Age = person.age;
+                 console.log('AGE : ',Age);
+                 var fullName = person.getFullName();
+                 console.log('FULLNAME : ',fullName);
+                 console.log('===================================================');
+                 var num = 10;
+                 var str = '10';
+                 if(num==str)
+                 {
+                     console.log("FOR == OPERATOR");
+                     console.log("Equal");
+                 }
+                 else{
+                     console.log("Not Equal");
+                 }
+                 if(num===str)
+                 {
+                     console.log("FOR === OPERATOR")
+                     console.log("Equal");
+                 }
+                 else{
+                    console.log("FOR === OPERATOR");
+                     console.log("Not Equal");
+                 }
+                 console.log("FOR typeof EX>");
+                console.log(typeof age);        
+                console.log(typeof name);            
+                console.log(typeof boolean);            
+                console.log(typeof data);            
+                console.log(typeof married);                 
+                </script>          
+</body>
+
+</html>
