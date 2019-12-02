@@ -1,0 +1,37 @@
+<!-- <div class=" col-md-3  card card-body " *ngFor = "let entertainmentNew of   entertainmentNews"> 
+    <h4>Entertainment News</h4>
+    <img src="{{entertainmentNew.urlToImage}}" alt="">
+    <h1>{{entertainmentNew.title}}</h1>
+</div>
+<div class="col-md-6 offset-3 card card-body " *ngFor = "let new of news"> 
+    <h4>Top News From India</h4>
+    <img src="{{new.urlToImage}}" alt="">
+    <h1>{{new.title}}</h1>
+</div>
+<div class="col-md-3 offset-9 card card-body">
+    <h4>Sports News</h4>
+</div> -->
+
+<div class="row">
+    <div class="col-md-3">
+        <h3 class="offset-1">Entertainment News</h3>
+        <div *ngFor="let entertainmentNew of   entertainmentNews" class="card card-body">
+            <a href="{{entertainmentNew.url}}"> <img src="{{entertainmentNew.urlToImage}}" alt="" class="md3"></a>
+            <h4>{{entertainmentNew.title}}</h4>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h3 class="offset-3">Top News From India</h3>
+        <div *ngFor="let new of news" class="card card-body">
+            <a href="{{new.url}}"> <img src="{{new.urlToImage}}" alt="" class="md5"></a>
+            <h4>{{new.title}}</h4>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h3 class="offset-2">Sports News</h3>
+        <div *ngFor="let sportsnew of sportsnews" class="card card-body">
+            <a href="{{sportsnew.url}}"> <img src="{{sportsnew.urlToImage}}" alt="" class="md3"></a>
+            <h4>{{sportsnew.title}}</h4>
+        </div>
+    </div>
+</div>

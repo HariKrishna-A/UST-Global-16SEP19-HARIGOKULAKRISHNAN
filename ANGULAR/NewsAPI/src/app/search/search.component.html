@@ -1,0 +1,19 @@
+<!-- <div class="input-group" style="margin: 0 0 30px 650px;">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Search</span>
+        
+    </div>
+    <input  (input)=getEnt($event) type="search" name="search" id="search" style="width: 500px; height: 50px;" >
+</div> -->
+
+
+
+  <div>  
+    <input type="search" name="search" id="input" class="form-control" style="width:400px; height: 40px; margin: 0 0 30px 500px;"(input)="cFun($event)" value="" required="search" title="">
+</div>
+<div class="row">
+    <div class="col-md-3 card card-body" *ngFor ="let news of searchNews">
+        <a href="{{news.url}}"><img src="{{news.urlToImage}}" alt=""></a>
+        <h4>{{news.title}}</h4>
+    </div>
+</div>
