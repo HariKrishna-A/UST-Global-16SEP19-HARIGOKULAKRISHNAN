@@ -40,19 +40,30 @@
 	<%
 		if (productBean != null) {
 	%>
+	<form action="./product">
 	<table>
 		<tr>
+		<th></th>
 			<th>Name</th>
 			<th>Quantity</th>
 			<th>price</th>
+			<th>enter quantity</th>
+			<th>add</th>
 		</tr>
 		<tr>
+		 <td>
+		<%--  <input type="text" name="id" value=<%=productBean%> disabled="disabled"></td> --%>
 			<td><%=productBean.getPname()%></td>
 			<td><%=productBean.getPqty()%></td>
 			<td><%=productBean.getPrice()%></td>
+			 <td><input type="number" name="quantity"></td>
+			 
+			 <td><input type="submit" name="add" value="Add"></td>
+			
 		</tr>
 		
 		</table>
+		</form>
 	<%
 		}
 	%>

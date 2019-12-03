@@ -1,5 +1,7 @@
 package com.ustglobal.rms.dao;
 
+import java.util.ArrayList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -14,6 +16,7 @@ import com.ustglobal.rms.dto.RetailerBean;
 @Repository
 public class RMSDaoIMPL implements RMSDAO{
 	final String SELECT_ORDER = "from OrderBean where id=:name";
+
 	
 	@PersistenceUnit
 	private EntityManagerFactory factory;
@@ -49,6 +52,8 @@ public class RMSDaoIMPL implements RMSDAO{
 
 	@Override
 	public int register(RetailerBean bean) {
+		
+		
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		transaction.begin();
@@ -66,8 +71,12 @@ public class RMSDaoIMPL implements RMSDAO{
 	@Override
 	public ProductBean searchId(int id) {
 		EntityManager manager = factory.createEntityManager();
-
+           try {
 		return manager.find(ProductBean.class, id);
+           }catch (Exception e) {
+        	   return null;
+			// TODO: handle exception
+		}
 	}
 
 	@Override
@@ -85,6 +94,51 @@ public class RMSDaoIMPL implements RMSDAO{
 		}
 		
 
+	}
+
+
+	@Override
+	public boolean add(ProductBean pbean, int qty,int rid) {
+		
+		
+		
+		ArrayList<ProductBean> product = new ArrayList<ProductBean>();
+		product.add(pbean);
+		
+		RetailerBean rb = new RetailerBean();
+//		rb.setName(bean.getName());
+//		rb.setEmail(bean.getEmail());
+//		rb.setPassword(bean.getPassword());
+//		rb.setGender(bean.getGender());
+		rb.setProduct(product);
+		
+		EntityManager manager = factory.createEntityManager();
+		System.out.println(qty);
+		System.out.println(rid);
+		EntityTransaction transaction=manager.getTransaction();
+		transaction.begin();
+		try {
+		ProductBean bean=manager.find(ProductBean.class, pbean.getPid());
+		bean.setPqty(pbean.getPqty()-qty);
+		System.out.println(pbean.getPqty()-qty);
+		transaction.commit();
+		return true;
+//		try {
+//			OrderBean bean2=new OrderBean();
+//			bean2.setAmount(pbean.getPrice()*qty);
+//			bean2.setPname(pbean.getPname());
+//			bean2.setPrice_Per_Unit(pbean.getPrice());
+//			return true;
+//		}
+//		catch (Exception e) {
+//		}
+//		return true;
+		}
+		catch (Exception e) {
+			transaction.rollback();
+			return false;
+		}
+		
 	}
 
 }

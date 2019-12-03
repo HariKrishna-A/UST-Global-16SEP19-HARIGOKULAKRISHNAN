@@ -1,11 +1,21 @@
 package com.ustglobal.rms.dto;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+
+import lombok.Data;
+import lombok.ToString.Exclude;
+@Data
 @Entity
 @Table(name = "product")
 public class ProductBean {
@@ -17,33 +27,12 @@ public class ProductBean {
 	@Column
 	private String pname;
 	@Column
-	private String pqty;
+	private int pqty;
 	@Column
 	private double price;
-	public int getPid() {
-		return pid;
-	}
-	public void setPid(int pid) {
-		this.pid = pid;
-	}
-	public String getPname() {
-		return pname;
-	}
-	public void setPname(String pname) {
-		this.pname = pname;
-	}
-	public String getPqty() {
-		return pqty;
-	}
-	public void setPqty(String pqty) {
-		this.pqty = pqty;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
 	
+	@Exclude
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "product")
+	private List<RetailerBean> retailer;
 	
 }

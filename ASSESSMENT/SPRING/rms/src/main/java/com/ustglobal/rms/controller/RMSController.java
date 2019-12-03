@@ -132,4 +132,22 @@ public class RMSController {
 		}
 		return "home";
 	}//End of Changepassword
+	
+	
+	
+	
+	
+	@GetMapping("/product")
+	public String addProduct(ProductBean pbean,int quantity,HttpSession session,ModelMap map ){
+		RetailerBean bean=(RetailerBean)session.getAttribute("bean");
+		boolean check=service.add(pbean,quantity,bean.getId());
+		if(check) {
+			
+			map.addAttribute("msg","added sucessfully");
+		}
+		else {
+			map.addAttribute("msg","added unsucessfully");
+		}
+		return "home";
+	}
 }

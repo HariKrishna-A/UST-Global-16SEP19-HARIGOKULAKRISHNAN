@@ -38,4 +38,9 @@ public class RMSServiceIMPL implements RMSService{
 		return dao.DisplayOrder(id);
 	}
 
+	@Override
+	public boolean add(ProductBean bean , int qty, int rid) {
+		return dao.add(bean,qty, rid);
+	}
+
 }

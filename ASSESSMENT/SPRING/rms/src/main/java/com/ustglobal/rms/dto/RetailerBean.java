@@ -1,15 +1,23 @@
 package com.ustglobal.rms.dto;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
+import lombok.Data;
 
+
+@Data
 @Entity
 @Table(name = "retailer")
 public class RetailerBean {
@@ -19,7 +27,7 @@ public class RetailerBean {
 	@GeneratedValue
 	private int id;
 	
-	@Column
+	@Column(length = 17)
 	private String name;
 	
 	@Column
@@ -31,53 +39,9 @@ public class RetailerBean {
 	@Column
 	private String Gender;
 	
-	public String getGender() {
-		return Gender;
-	}
-
-	public void setGender(String gender) {
-		Gender = gender;
-	}
-
-	private Date dob;
-
-	public Date getDob() {
-		return dob;
-	}
-
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="order",joinColumns = @JoinColumn(name= "id"),
+	inverseJoinColumns = @JoinColumn(name="pid"))
+	private List<ProductBean> product;
+	
 }

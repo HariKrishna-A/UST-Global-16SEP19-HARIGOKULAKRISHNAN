@@ -10,4 +10,5 @@ public interface RMSDAO {
 	public int register(RetailerBean bean);
 	public ProductBean searchId(int id);
 	public OrderBean DisplayOrder(int id);
+	boolean add(ProductBean bean,int qty,int rid);
 }
