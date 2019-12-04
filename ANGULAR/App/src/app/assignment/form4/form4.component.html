@@ -1,0 +1,46 @@
+
+<form action="" class="col-md-4 offset-4 mt-5 card card-body"#form="ngForm"(ngSubmit)="loginData(form)">
+    <h1 class="text-center bg-info text-white">Form4</h1>
+       
+       <div class="form-group">
+           <input type="pname" name="pname" id="pname" class="form-control" placeholder="Product Name" #pname="ngModel" ngModel required>   
+          <div *ngIf="pname.touched && pname.invalid">
+              <p class="alert alert-danger" *ngIf="pname.errors.required">Enter name of the product</p>
+  
+  
+          </div>
+          </div>
+          
+           
+           <div class="form-group">
+            <input type="price" name="price" id="price" class="form-control" placeholder="Product Price" #price="ngModel" ngModel required>   
+           <div *ngIf="price.touched && price.invalid">
+               <p class="alert alert-danger" *ngIf="price.errors.required">Enter price of the product</p>
+   
+   
+           </div>
+           </div>
+
+           <div class="form-group">
+            <input type="desc" name="desc" id="desc" class="form-control" placeholder="Product Description" #desc="ngModel" ngModel required>   
+           <div *ngIf="desc.touched && desc.invalid">
+               <p class="alert alert-danger" *ngIf="desc.errors.required">Enter description  of the product</p>
+   
+   
+           </div>
+           </div>   
+
+           <div class="form-group">
+            <input type="img" name="img" id="img" class="form-control" placeholder="Product Img Url" #img="ngModel" ngModel required>   
+           <div *ngIf="img.touched && img.invalid">
+               <p class="alert alert-danger" *ngIf="img.errors.required">Insert image of the product</p>
+   
+   
+           </div>
+           </div>
+
+
+   <div class="form-group">
+       <button type="submit" class="btn btn-outline-primary float-right" [disabled]="form.invalid">Add Product</button>
+   </div>
+</form>

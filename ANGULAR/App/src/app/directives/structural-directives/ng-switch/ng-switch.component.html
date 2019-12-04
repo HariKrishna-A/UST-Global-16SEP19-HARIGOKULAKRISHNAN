@@ -1,0 +1,18 @@
+<div [ngSwitch]= "color" class="offset-5 col-md-6 mt-5 mb-4">
+<p  *ngSwitchCase="'blue'" style="color: blue">Bule_Color</p>
+<p *ngSwitchCase="'red'" style="color:red">Red_Color</p>
+<p *ngSwitchCase="'green'"  style="color:green" >Green_Color</p>
+<p *ngSwitchCase="'yellow'"  style="color:yellow" >yellow_Color</p>
+</div>
+
+
+<div class="dropdown"  class="offset-5 col-md-6">
+    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+      {{colorName}}
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item"(click)="cF()">Red</a>
+      <a class="dropdown-item"(click)="cF1()" >Green</a>
+      <a class="dropdown-item"(click)="cF2()">Yellow</a>
+    </div>
+  </div>
