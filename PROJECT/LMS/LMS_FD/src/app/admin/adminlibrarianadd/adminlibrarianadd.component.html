@@ -1,0 +1,35 @@
+
+<form  class="col-md-4 offset-4 mt-5 bg" #form='ngForm' (ngSubmit)="registerData(form)">
+    <h1 class="text-center  text-white" id="bg">Librarian</h1>
+    <div class="form-group"><label>NAME</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Enter name"   #name="ngModel" ngModel required >
+           <div *ngIf="name.touched && name.invalid">
+               <p class="alert alert-danger" *ngIf="name.errors.required">this field is required</p>
+           </div>
+    </div>
+    
+    <div class="form-group"><label>NUMBER</label>
+        <input type="number" name="mob" id="mob" class="form-control" placeholder="Enter mobile number"   #mob="ngModel" ngModel required >
+           <div *ngIf="mob.touched && mob.invalid">
+               <p class="alert alert-danger" *ngIf="mob.errors.required">this field is required</p>
+           </div>
+    </div>
+    <div class="form-group"><label>EMAIL</label>
+        <input type="email" name="username" id="username" class="form-control" placeholder="Enter email"   #username="ngModel" ngModel required >
+           <div *ngIf="username.touched && username.invalid">
+               <p class="alert alert-danger" *ngIf="username.errors.required">this field is required</p>
+           </div>
+    </div>
+    <div class="form-group"><label>PASSWORD</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Enter password"   #password="ngModel" ngModel required >
+           <div *ngIf="password.touched && password.invalid">
+               <p class="alert alert-danger" *ngIf="password.errors.required">this field is required</p>
+           </div>
+    </div>
+   
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn-outline-dark float-right">Register</button>
+    </div>
+</form>
+
+
