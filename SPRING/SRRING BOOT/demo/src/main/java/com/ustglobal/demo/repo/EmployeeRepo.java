@@ -1,0 +1,22 @@
+package com.ustglobal.demo.repo;
+
+import java.util.Date;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import com.ustglobal.demo.dto.EmployeeBean;
+
+
+public interface EmployeeRepo extends JpaRepository<EmployeeBean, Integer>{
+
+	public EmployeeBean findByName(String name);  
+	
+	@Transactional
+	@Modifying        //both annotation for other than select query
+	@Query("update EmployeeBean set name=:name, password=:password, doj=:doj ,gender=:gender where id=:id")
+	public void update(String name,String password,Date doj,String gender,int id);
+}
